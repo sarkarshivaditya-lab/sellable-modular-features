@@ -103,7 +103,7 @@ public class BackupService
             BackupDate      = DateTime.Now,
             BackupPath      = zipPath,
             BackupSizeBytes = sizeBytes,
-            Note             = note,
+            Note            = note,
             IsAutoBackup    = isAutoBackup
         });
         _db.SaveChanges();
