@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>UrbanDiagnosticCentre</RootNamespace>
+    <AssemblyName>UrbanDiagnosticCentre</AssemblyName>
+    <StartupObject>UrbanDiagnosticCentre.App</StartupObject>
+    <AssemblyTitle>OMEGA 6.0</AssemblyTitle>
+    <AssemblyDescription>Customer, service, billing and report management system</AssemblyDescription>
+    <Company>OMEGA 6.0</Company>
+    <Product>OMEGA 6.0</Product>
+    <Copyright>Copyright © 2026 OMEGA 6.0</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Version>1.0.0</Version>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="QuestPDF" Version="2024.10.4" />
+  </ItemGroup>
+</Project>
