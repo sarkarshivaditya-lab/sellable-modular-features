@@ -1,38 +1,42 @@
 # Omega 6.0 Sellable Modular Features
 
-Reusable modular capabilities extracted from the Omega 6.0 PC and Android application codebases.
+This repository contains **full-file source extractions**, not snippets, from the two Omega 6.0 source repositories.
 
 ## Source repositories
+
 - [omega-6-pc](https://github.com/sarkarshivaditya-lab/omega-6-pc)
 - [omega-6-hackathon](https://github.com/sarkarshivaditya-lab/omega-6-hackathon)
+
+## Baseline
+
+The extraction standard for this repository is:
+
+> "I dont want tiny snippets, I want you to copy paste entire code bases, every file depending on the feature, from the original two repos."
+
+The `extracted/` trees are the authoritative copies. Source files are copied as complete files from the originals, with their original source structure/namespaces retained wherever possible. Supporting dependency files are included when the extracted implementation directly depends on them.
 
 ## Features
 
 ### 1. Multi-Device Synchronization
+
 Source: `omega-6-pc`
 
-Server-backed synchronization for keeping application data consistent across multiple devices on the same server. Includes the sync API, data model layer, authentication middleware, shared SQLite access, idempotency, conflict rules, push/pull flows, and sync logging.
+Includes the complete server-side sync service and the Reception-side sync implementation: HTTP push/pull API, API-key middleware, SQLite/EF Core sync context, sync models, outbox, cursor/changelog, background worker, status reporting, database sync-capture logic, and the application model dependencies used by that implementation.
 
 ### 2. PDF Generation & Export
+
 Sources: `omega-6-pc`, `omega-6-hackathon`
 
-Cross-platform report/receipt generation and export. The PC implementation uses QuestPDF for structured PDF documents; the Android implementation uses the native Android PDF API for receipt generation. The Android extraction also includes database, JSON, database-file, and CSV export capabilities that support portable data handling.
+Includes the complete Android receipt generator and its domain model dependency, plus the complete PC financial PDF generator, accounting/export service, and the model types required by those implementations.
 
 ### 3. Logging & Logistics Management
+
 Sources: `omega-6-pc`, `omega-6-hackathon`
 
-Reusable operational logging and data-handling components covering error/info logging, synchronization logs, backup/export workflows, local database backup and restore, and operational records required for moving data through the application workflow.
+Includes the complete PC backup/restore and error logging implementations and the Android database backup/export implementation, including the Room database, entities, DAOs, domain models, and database dependency module used by the backup repository.
 
-## Repository structure
+## Important distinction
 
-```text
-multi-device-sync/
-pdf-generation-export/
-logging-logistics/
-```
+The module-level `extracted/` directories are source snapshots. They are intentionally not rewritten into simplified pseudo-packages. This preserves the actual implementation and makes it possible to trace each capability back to the original working application.
 
-Each module is kept independent from the original application wherever practical. Source attribution is documented inside each module.
-
-## Attribution
-
-These modules are extracted from working Omega 6.0 application code. The original repositories remain the primary application codebases; this repository packages selected capabilities as reusable modular assets.
+The original repositories remain the primary application codebases. This repository is the feature-oriented source collection.
